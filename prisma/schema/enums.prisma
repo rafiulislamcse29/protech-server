@@ -1,0 +1,46 @@
+enum Role {
+  BUYER
+  AGENT
+  ADMIN
+  SUPER_ADMIN
+}
+
+enum InquiryStatus {
+  PENDING
+  VIEWED
+  REPLIED
+  ARCHIVED
+}
+
+enum NotificationType {
+  AI_RECOMMENDATION
+  NEW_INQUIRY
+  INQUIRY_REPLY
+  PRICE_DROP
+  SYSTEM_ALERT
+}
+
+enum PropertyType {
+  HOUSE
+  APARTMENT
+  CONDO
+  TOWNHOUSE
+  LAND
+  COMMERCIAL
+}
+
+enum PropertyStatus {
+  AVAILABLE
+  PENDING
+  SOLD
+  RENTED
+}
+
+enum MediaType {
+  IMAGE
+  VIDEO
+  VIRTUAL_TOUR
+  LINK
+  YOUTUBE
+  MAP
+}

@@ -1,0 +1,90 @@
+model Property {
+  id              String            @id @default(uuid()) @db.Uuid
+  title           String
+  description     String            @db.Text
+  shortDescription String?          @db.Text
+  price           Decimal           @db.Decimal(12, 2)
+  address         String
+  city            String
+  state           String
+  zip             String
+  lat             Float?
+  lng             Float?
+  beds            Int
+  baths           Float
+  sqft            Int
+  lotSize         Float?
+  yearBuilt       Int?
+  type            PropertyType
+  status          PropertyStatus
+  agentId         String            @db.Uuid
+  aiFeatures      Json              @default("{}")
+  tags            String[]
+  highlights      String[]
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  agent           Agent             @relation(fields: [agentId], references: [id])
+  media           Media[]
+  reviews         Review[]
+  savedBy         SavedProperty[]
+  inquiries       Inquiry[]
+  recommendations AIRecommendation[]
+  similarFrom     SimilarProperty[] @relation("PropertySimilar")
+  similarTo       SimilarProperty[] @relation("SimilarToProperty")
+
+  @@map("properties")
+  @@index([agentId])
+  @@index([city])
+  @@index([zip])
+  @@index([type])
+  @@index([status])
+  @@index([beds, price, status])
+}
+
+model Media {
+  id         String    @id @default(uuid()) @db.Uuid
+  propertyId String    @db.Uuid
+  url        String
+  type       MediaType
+  order      Int?
+  altText    String?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  property   Property  @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  @@map("media")
+  @@index([propertyId])
+}
+
+model SimilarProperty {
+  id              String   @id @default(uuid()) @db.Uuid
+  propertyId      String   @db.Uuid
+  similarId       String   @db.Uuid
+  similarityScore Float
+  matchCriteria   Json?
+  updatedAt       DateTime @updatedAt
+  property        Property @relation("PropertySimilar", fields: [propertyId], references: [id])
+  similar         Property @relation("SimilarToProperty", fields: [similarId], references: [id])
+
+  @@map("similar_properties")
+  @@index([propertyId])
+  @@index([similarId])
+}
+
+model Neighborhood {
+  id           String   @id @default(uuid()) @db.Uuid
+  zip          String?   @unique
+  name         String?
+  city         String?
+  safetyScore  Int?
+  schoolScore  Int?
+  transitScore Int?
+  marketTrend  Json?
+  aiAnalysis   String?   @db.Text
+  expiresAt    DateTime?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("neighborhoods")
+  @@index([zip])
+}

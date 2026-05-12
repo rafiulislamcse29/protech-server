@@ -1,0 +1,9 @@
+export { default as authRoutes } from "./auth/auth.routes";
+export { default as userRoutes } from "./user/user.routes";
+export { default as agentRoutes } from "./agent/agent.routes";
+export { default as propertyRoutes } from "./property/property.routes";
+export { default as adminRoutes } from "./admin/admin.routes";
+export { default as aiRoutes } from "./ai/ai.routes";
+export { default as reviewRoutes } from "./review/review.routes";
+export { default as inquiryRoutes } from "./inquiry/inquiry.routes";
+export { default as notificationRoutes } from "./notification/notification.routes";

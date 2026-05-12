@@ -1,0 +1,82 @@
+{
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "target": "ES2023",
+    "types": [],
+    "lib": [
+      "esnext"
+    ],
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true,
+    "moduleDetection": "force",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "ignoreDeprecations": "5.0",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "generated/prisma"
+  ]
+}
+
+
+// {
+//   "compilerOptions": {
+//     "rootDir": "./src",
+//     "outDir": "./dist",
+//     "module": "ESNext",
+//     "moduleResolution": "bundler",
+//     "target": "ES2023",
+//     "types": [],
+//     "lib": [
+//       "esnext"
+//     ],
+//     "sourceMap": true,
+//     "declaration": true,
+//     "declarationMap": true,
+//     "noUncheckedIndexedAccess": true,
+//     "exactOptionalPropertyTypes": true,
+//     "isolatedModules": true,
+//     "noUncheckedSideEffectImports": true,
+//     "moduleDetection": "force",
+//     "strict": true,
+//     "esModuleInterop": true,
+//     "skipLibCheck": true,
+//     "forceConsistentCasingInFileNames": true,
+//     "ignoreDeprecations": "5.0",
+//     "baseUrl": ".",
+//     "paths": {
+//       "@/*": [
+//         "./src/*"
+//       ]
+//     }
+//   },
+//   "include": [
+//     "src/**/*"
+//   ],
+//   "exclude": [
+//     "node_modules",
+//     "dist",
+//     "generated/prisma"
+//   ]
+// }
